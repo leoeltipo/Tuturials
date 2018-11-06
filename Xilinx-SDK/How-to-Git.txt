@@ -1,0 +1,18 @@
+Using GIT with Xilinx SDK (my way).
+
+1) Create a repository at GitHub with a readme file.
+2) Add files. It is convenient to add a inc/ and src/ directory.
+3) Create a SDK the usual way (Export Hardware and Launch SDK).
+4) Create an application (Empty app) the usual way.
+5) Navigate the Git Console to that location, where the src/ directory is.
+6) git init to start a new empty git repository.
+7) Register that repo with the remote GitHub repo:
+-> git remote add origin https://github.com/[username]/[reponame].git
+
+8) git pull 
+9) git pull git remote add origin https://github.com/[username]/[reponame].git
+10) Now the files are already cloned. 
+11) In Xilinx SDK, right click on project name and Refresh.
+12) Add inc/ path in project settings.
+13) That's it. Commit, push and pull the usual way from command line.
+
