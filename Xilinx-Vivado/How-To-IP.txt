@@ -1,0 +1,29 @@
+This Readme explains how to create an IP with a 
+minimum set of files in Vivado.
+
+###############################
+### IP with VHDL files only ###
+###############################
+1) Create a dummy project in vivado.
+2) During project creation, add .vhd/.v files at will
+-> NOTE: uncheck the option 'Copy source into project'
+3) Tools->Create and Package New IP.
+4) Package your current project.
+5) Set IP location as desired.
+-> NOTE: it is preferred to create an empty directory for this,
+where the input source files added previously should also be.
+6) Add name and description.
+7) Review and Package->Package IP.
+8) This should create a folder <ip_name>_0, a folder xgui
+and the component.xml files. The folder <ip_name>_0 can
+be deleted. The other are the files to be kept.
+9) The project used to package the IP can also be deleted.
+
+Edit IP 1:
+1) Create dummy project.
+2) Add the IP location to the repository in project settings.
+3) Open IP Catalog. Search IP.
+4) Right-click Edit in IP Packager. That will create a temporary
+project for editing and re-packaging the IP.
+5) Edit files at will.
+6) Review and Package->Re-Package IP.
