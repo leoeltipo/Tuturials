@@ -27,3 +27,49 @@ Edit IP 1:
 project for editing and re-packaging the IP.
 5) Edit files at will.
 6) Review and Package->Re-Package IP.
+
+#################################
+### IP with block design (BD) ###
+#################################
+What is important is to keep the .tcl file to be able to recreate
+the block design if modifications are needed.
+1) With the project with the block design open, go to File->Export->Block Design.
+This will create a .tcl file that can be sourced later to rebuild the BD.
+2) Go to Tools->Create and Package New Ip.
+3) Package your current project.
+4) Set IP location as desired. This will create the .xml, a src/
+directory with the .xci files for all the instantiated blocks and the usual
+xgui folder. This .xci files must be kept versioned to be able to use the block
+properly.
+5) Keep the previously generated .tcl for sourcing to rebuild the block design.
+
+Edit IP:
+1) Create a dummy project. Add the required repositories if the IP uses other
+IPs as sublocks. It is better to maintain IPs in adjacent locations instead of
+nesting them.
+2) With the dummy project open and after having added the required IP repositories,
+source bd.tcl to rebuild the block design.
+3) Edit the sub-blocks or the Block Design at will.
+4) Re-write the current block design to keep in case of future use. For this, go
+to File->Export block design as usual.
+5) Re package IP as usual.
+
+##############################
+### IPs with AXI Interfase ###
+##############################
+1) Create the IP with the AXI IF as usual. 
+2) Before packing the IP, copy all the source files .vhd/.v to the root location where
+the IP is going to be.
+3) Tools->Create and Package New IP, current project. This will create the src/ directory
+in the IP root and copy the .vhd/.v files inside. The files copied before can then be
+deleted. This trick is neccessary, otherwise the complex directory tree of Vivado is
+used.
+-> NOTE: creating the directory src/ and moving the .vhd/.v files inside should also
+work and removing the files should not be neccesary.
+4) Once IP is packaged, it will contain the .vhd/.v and .xci files.
+
+Edit IP:
+1) Open IP Catalog from any project that instantiates the IP.
+2) Search the IP. Right click and Edit in IP Packager.
+3) Re-package.
+
