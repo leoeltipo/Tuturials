@@ -35,6 +35,9 @@ What is important is to keep the .tcl file to be able to recreate
 the block design if modifications are needed.
 1) With the project with the block design open, go to File->Export->Block Design.
 This will create a .tcl file that can be sourced later to rebuild the BD.
+->NOTE: before packaging the project, it is important to right-click create HDL wrapper.
+This will create additional .v/.vhd and .xdc files that must be kept to make the IP fully
+functional.
 2) Go to Tools->Create and Package New Ip.
 3) Package your current project.
 4) Set IP location as desired. This will create the .xml, a src/
