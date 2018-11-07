@@ -1,0 +1,27 @@
+#########################
+### Change remote url ###
+#########################
+This trick allows to change the remote even if the current git repo
+has a past (commits). Use case:
+* A Git repository has been created some time ago. Commits were made
+into this repo and after a while, for some reason, the remote wants to
+be changed (for example, from github to a private server).
+* The following steps must be followed:
+
+1) Create the new repo on the server you want.
+2) Clone a clean copy of the repository with the commits you have been
+using for a while.
+3) In this new cloned directory execute:
+-> git remote -v
+-> git remote set-url <new-repo-url>.git
+-> git remote -v
+-> git pull --allow-unrelated-histories
+
+At this point the new repo url should be set. If some conflicts arise,
+they should be fixed first and then a new pull must be executed. Once
+conflicts are gone:
+-> git push
+
+The repository in the new URL now contains all from the other repo, even
+the history and commits.
+
