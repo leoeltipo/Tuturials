@@ -1,0 +1,36 @@
+This readme explains how to save the minimum set of files for
+versioning in Vivado, and how to re-create the project.
+
+The main idea is to keep only text files and then to re create
+the project from scratch for working.
+
+########################
+### Saving the files ###
+########################
+1) Save the IPs as explained in How-To-Ip.txt.
+2) Save source files .v/.vhd used in the project.
+3) Save .xdc files with constraints.
+4) If the project has a block design, open the Block Design (BD)
+and execute the command:
+-> write_bd_tcl -include_layout <name>.tcl
+
+The option File->Export->Export Block Design does almost the same
+thing, but it does not add the -include_layout option which is 
+important if the layout of the BD wants to be maintained.
+
+###############################
+### Re-Building the project ###
+###############################
+1) Create a new project. During creation, add hdl and xdc files. Make
+sure the option Copy files to project is not checked. This ensures any
+modification of the files will be reflected in the original files.
+2) Set the part appropriately.
+3) With the project open, to to Settings and add the IP repositories.
+4) To rebuild the block design, go to Tools->Run Tcl Script and select
+the BD created with write_bd_tcl.
+-> NOTE: This step can also be executed from the Tcl console sourcing the
+Tcl file.
+5) Right-click in the recently created block design and create HDL wrapper.
+
+Project should be ready for use.
+
